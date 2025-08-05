@@ -69,10 +69,10 @@ const [loading, setLoading] = useState(false);
 - ✅ Increased user confidence
 
 
-3. "Cannot read properties of undefined (reading 'replace')" Error
-File: supabase/functions/send-confirmation/index.ts
-Severity: High
-Status: ✅ Fixed
+## 3. "Cannot read properties of undefined (reading 'replace')" Error
+**File:** `supabase/functions/send-confirmation/index.ts`  
+**Severity:** High  
+**Status:** ✅ Fixed
 
 Problem
 The Supabase Edge Function was throwing "Cannot read properties of undefined (reading 'replace')" errors when processing AI-generated email content, resulting in:
@@ -89,6 +89,8 @@ No null safety for the .replace() method
 Lack of fallback content when AI response was missing
 Solution
 Improved error handling and added null safety:
+
+```tsx
 // Corrected array indexing
 const content = data?.choices?.[0]?.message?.content;
 
@@ -100,13 +102,13 @@ if (!content) {
   console.warn('No content received from OpenAI, using fallback');
   return fallbackContent;
 }
-
+```
 
 Impact
-✅ Eliminated undefined property errors
-✅ Added robust fallback content
-✅ Improved function reliability
-✅ Enhanced error logging
+- ✅ Eliminated undefined property errors
+- ✅ Added robust fallback content
+- ✅ Improved function reliability
+- ✅ Enhanced error logging
 
 
 ## 4. Graceful Degradation for Email Service Failures

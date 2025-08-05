@@ -167,3 +167,12 @@ These fixes improve reliability, user experience, and maintainability of the lea
 For more details, see the code in `src/components/LeadCaptureForm.tsx`.
 
 
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
